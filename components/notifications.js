@@ -1,4 +1,5 @@
 const SteamID = require('steamid');
+const BinaryKVParser = require('binarykvparser');
 
 const EMsg = require('../enums/EMsg.js');
 
@@ -102,7 +103,10 @@ SteamUserBase.prototype._handlerManager.add(EMsg.ClientMarketingMessageUpdate2, 
 });
 
 SteamUserBase.prototype._handlerManager.add(EMsg.ClientMicroTxnAuthRequest, function (body) {
-	
+	body = BinaryKVParser.parse(body.slice(1));
+	let data = body.MessageObject;
+
+	console.log(data);
 });
 
 module.exports = SteamUserNotifications;
