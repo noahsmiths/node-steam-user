@@ -101,4 +101,8 @@ SteamUserBase.prototype._handlerManager.add(EMsg.ClientMarketingMessageUpdate2, 
 	this.emit('marketingMessages', new Date(time * 1000), messages);
 });
 
+SteamUserBase.prototype._handlerManager.add(EMsg.ClientMicroTxnAuthRequest, function (body) {
+	
+});
+
 module.exports = SteamUserNotifications;
